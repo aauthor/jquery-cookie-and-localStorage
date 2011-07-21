@@ -26,7 +26,7 @@
 				time.setDate( time.getDate() + days );
 			}
 
-			value = String(value);
+			value = value + "";
 
 			return ( document.cookie = [
 				encodeURIComponent( key ), "=",
