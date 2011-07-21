@@ -28,21 +28,22 @@
 
 			value = String(value);
 
-			return (document.cookie = [
-				encodeURIComponent(key), "=",
-				options.raw ? value : encodeURIComponent(value),
+			return ( document.cookie = [
+				encodeURIComponent( key ), "=",
+				options.raw ? value : encodeURIComponent( value ),
 				// use expires attribute, max-age is not supported by IE
 				options.expires ? "; expires=" + options.expires.toUTCString() : "",
 				options.path ? "; path=" + options.path : "",
 				options.domain ? "; domain=" + options.domain : "",
 				options.secure ? "; secure" : ""
-			].join(""));
+			].join( "" ) );
 		}
 
 		// key and possibly options given, get cookie...
 		options = value || {};
 		decode = options.raw ? function(s) { return s; } : decodeURIComponent;
 
-		return (result = new RegExp("(?:^|; )" + encodeURIComponent(key) + "=([^;]*)").exec(document.cookie)) ? decode(result[1]) : null;
+		return ( result = new RegExp("(?:^|; )" + encodeURIComponent( key ) + "=([^;]*)").exec( document.cookie ) ) ?
+				decode( result[ 1 ] ) : null;
 	};
 })( this, this.jQuery );
